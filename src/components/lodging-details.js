@@ -2,12 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { useTheme } from '@material-ui/styles';
 //import Typography from '@material-ui/core/Typography';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormLabel from '@material-ui/core/FormLabel';
 import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
@@ -56,10 +51,11 @@ function getUrl(location, duration, date) {
     let base_url = urls[location];
     console.log("dateee", date);
     let checkin_date = new Date(date);
+    checkin_date.setDate(checkin_date.getDate() + 1);
     let numeric_duration = parseInt(duration);
     let checkout_date = new Date(date);
-    console.log("checkout_date", checkout_date);
-    checkout_date.setDate(checkout_date.getDate() + numeric_duration);
+    console.log("checkin_date", checkin_date);
+    checkout_date.setDate(checkout_date.getDate() + 1 + numeric_duration);
     let checkin_string = checkin_date.getFullYear() + "-" + (checkin_date.getMonth() + 1) + "-" + checkin_date.getDate();
     let checkout_string = checkout_date.getFullYear() + "-" + (checkout_date.getMonth() + 1) + "-" + checkout_date.getDate();
 

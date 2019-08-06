@@ -28,14 +28,17 @@ const useStyles = makeStyles(theme => ({
     },
     firstParagraph: {
         marginBottom: '20px',
-    }
+        marginTop: '20px',
+    },
+    secondParagraph: {
+    },
 }));
 
 
 const styles = theme => ({
     root: {
       margin: 0,
-      padding: theme.spacing(2),
+      padding: theme.spacing(0),
     },
     closeButton: {
       position: 'absolute',
@@ -61,8 +64,8 @@ const DialogTitle = withStyles(styles)(props => {
   
 const DialogContent = withStyles(theme => ({
 root: {
-    height: '500px',
-    padding: theme.spacing(2),
+    height: '450px',
+    padding: theme.spacing(3),
 },
 }))(MuiDialogContent);
 
@@ -92,7 +95,7 @@ export default function CompletionModal(props) {
                 Dear Sam,
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p" className={classes.firstParagraph}>
-                How much we've done in a year. It's hard to believe that on your last birthday, equity-less, engagement-less and
+                Look at how much we've done in a year! It's hard to believe that on your last birthday, equity-less, engagement-less and
                 living in a busy Boston suburb. I'm so happy to see you making new friends and truly trying to make the best out
                 of every single day we've spent living down south. Even hundreds of miles from home, you keep me busy enough that
                 I've barely had time to miss it. There is no one in the world I would rather share these experiences with than you.

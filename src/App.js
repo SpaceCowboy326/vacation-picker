@@ -1,6 +1,6 @@
 //import './App.css';
 //import './components/button.js';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { useTheme } from '@material-ui/styles';
 import Container from '@material-ui/core/Container';
@@ -14,6 +14,8 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 //import ProTip from './ProTip';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+
 
 import LocationDetails from './components/location-details'
 import TimingDetails from './components/timing-details'
@@ -21,10 +23,45 @@ import ActivityDetails from './components/activity-details'
 import LodgingDetails from './components/lodging-details'
 import RestaurantDetails from './components/restaurant-details'
 
+
+import HappyBirthday from './components/hb'
 import CompletionModal from './components/completion-modal'
 
 import beachTheme from './themes/beach-theme';
 import mountainTheme from './themes/mountain-theme';
+
+//import useWindowSize from 'react-use/lib/useWindowSize'
+import Confetti from 'react-confetti'
+
+// Hook
+function useWindowSize() {
+  const isClient = typeof window === 'object';
+
+  function getSize() {
+    return {
+      width: isClient ? window.innerWidth : undefined,
+      height: isClient ? window.innerHeight : undefined
+    };
+  }
+
+  const [windowSize, setWindowSize] = useState(getSize);
+
+  useEffect(() => {
+    if (!isClient) {
+      return false;
+    }
+    
+    function handleResize() {
+      setWindowSize(getSize());
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []); // Empty array ensures that effect is only run on mount and unmount
+
+  return windowSize;
+}
+
 
 //import zugzug from '../public/images/locations/zugzug.jpg';
 
@@ -89,6 +126,28 @@ const useStyles = makeStyles(theme => ({
     float: 'right',
     fontSize: '12px',
     fontWeight: 'bold',
+  },
+  endSummaryText: {
+    display: 'block',
+    float: 'right',
+    fontSize: '18px',
+    fontWeight: 'bold',
+    marginBottom: '15px',
+    width: '500px',
+  },
+  happyBirthday: {
+    height: '500px',
+    paddingTop: '100px',
+    //width: '500px'
+  },
+  happyBirthdayText: {
+    display: 'block',
+    fontSize: '80px',
+    fontWeight: 'bold',
+    marginBottom: '25px',
+    textAlign: 'center',
+    width: '700px',
+    //width: '500px'
   }
 
 }));
@@ -107,15 +166,17 @@ export default function App(props) {
   const [completionModalOpen, setCompletionModalOpen] = useState(false);
   const [collapse, setCollapse] = useState(true);
 
+
+  const size = useWindowSize();
+
   const [dataComplete, setDataComplete] = useState(false);
+
 
   function setAppLocation(location_name) {
     setLocation(location_name);
     setAppTheme(location_name);
     setTitle(locations[location_name].title);
     setActivities([]);
-
-    setDataComplete(true);
   }
 
   function setAppTheme(location_name) {
@@ -132,17 +193,87 @@ export default function App(props) {
       date: date,
       duration: duration,
       activities: activities,
+      restaurants: restaurants,
+      location: location,
     };
   }
 
+  let getaway = getGetawayState();
+
   function collapseApp() {
+    console.log(getaway);
     setCollapse(false);
   }
 
+
+  if (
+      !dataComplete &&
+      location &&
+      duration &&
+      date &&
+      activities.length > 0 &&
+      restaurants.length > 0
+  ) {
+    setDataComplete(true);
+  }
+  
+  
+  let activity_string = '',
+    restaurant_string = '',
+    date_string = '',
+    duration_string = '';
+
+  //We are on the end screen, need to display trip as text
+  if (!collapse) {
+    activity_string = Array.prototype.map.call(activities, a=> a.title).toString();
+    restaurant_string = Array.prototype.map.call(restaurants, r=> r.title).join(', ');
+    let datier_date = new Date(date);
+    date_string = datier_date.toString();
+    if (duration > 1) {
+      duration_string = duration + ' days';
+    }
+    else {
+      duration_string = duration + ' day';
+    }
+  }
+
+
   //<TimingDetails setAppDuration="setDuration" />
   return (
-    <Collapse in={collapse}>
-      <Container className={classes.page} maxWidth="md">
+    <Container className={classes.page} maxWidth="md">
+      <Collapse in={!collapse} id="hb_section">
+        <Confetti
+          width={size.width}
+          height={size.height}
+        />
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          spacing={5}
+          className={classes.happyBirthday}
+        >
+
+          <Typography className={classes.happyBirthdayText} color="secondary" variant="h4" component="h1" gutterBottom>
+            HAPPY BIRTHDAY SAMBO!
+          </Typography>
+          <Typography className={classes.endSummaryText}>
+            You are headed to {title} sometime around {date}. Over the course of {duration_string},
+            we're going to try to get to all these activities:
+          </Typography>
+          <Typography className={classes.endSummaryText} paddingLeft="20px" color="secondary"> {activity_string}</Typography>
+          <Typography className={classes.endSummaryText}>
+          When we get hungry, we'll look to eat at these fine establishments:
+          </Typography>
+          <Typography className={classes.endSummaryText} paddingLeft="20px" color="secondary">{restaurant_string}</Typography>
+          <Typography className={classes.endSummaryText}>
+          Hopefully you saw some places you'd like to stay at!
+          </Typography>
+
+        </Grid>
+      </Collapse>
+      <Collapse in={collapse} id="collapse_section">
         <Box my={4}>
           <Box className={classes.titleContainer}>
             <Typography variant="h4" component="h1" gutterBottom>
@@ -234,7 +365,7 @@ export default function App(props) {
           <Button className={classes.saveButton} color="secondary" onClick={openCompletionModal} disabled={!dataComplete}>Save your Getaway</Button><div className={classes.clearfix}></div>
         </Box>
         <CompletionModal closeAction={collapseApp} setModalOpen={setCompletionModalOpen} modalOpen={completionModalOpen}/>
-      </Container>
-    </Collapse>
+        </Collapse>
+    </Container>
   );
 };
