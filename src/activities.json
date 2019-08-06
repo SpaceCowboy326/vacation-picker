@@ -1,0 +1,90 @@
+{
+    bryson: [
+        {
+            title: 'Mountain Layers Brewing',
+            link: 'https://www.mountainlayersbrewingcompany.com/',
+            img: mountainLayersBrewing,
+            description: 'PLACEHOLDER',
+        },
+        {
+            title: 'Clingman\'s Dome',
+            link: 'https://www.nps.gov/grsm/planyourvisit/clingmansdome.htm',
+            img: clingmansDome,
+            description: 'PLACEHOLDER',
+        },
+        {
+            title: 'Train Ride',
+            link: 'https://www.gsmr.com/train-excursion/Nantahala',
+            img: trainRide,
+            description: 'Ride along the Great Smoky Mountains Raildroad. 4.5 hours.',
+        },
+        {
+            title: 'Nantahala Brewing',
+            link: 'http://www.nantahalabrewing.com/home.html',
+            img: nantahalaBrewing,
+            description: 'PLACEHOLDER',
+        },
+        {
+            title: 'Zipline',
+            link: 'https://www.greatsmokies.com/ziplines/',
+            img: zipLine,
+            description: 'PLACEHOLDER',
+        },
+        {
+            title: 'Deep Creek Loop Trail',
+            link: 'https://www.alltrails.com/trail/us/north-carolina/deep-creek-loop-trail',
+            img: deepCreekLoopTrail,
+            description: 'Easy trail with beautiful waterfall views.',
+        },
+        {
+            title: 'Wesser Bald Fire Tower Trail',
+            link: 'https://www.alltrails.com/trail/us/north-carolina/wesser-bald-fire-tower-via-appalachian-trail',
+            img: wesserBaldFireTower,
+            description: 'Moderate trail which is 3.3 miles based on comments, but 2.2 miles by description.  Part of the Appalachian Trail.',
+        },
+        {
+            title: 'Jump Off Trail',
+            link: 'https://www.alltrails.com/explore/trail/us/tennessee/jump-off-trail-via-appalachian-trail',
+            img: jumpOffTrail,
+            description: 'Moderate trail which is 6.2 and is part of the Appalachian Trail. Close to Clingman\'s Dome.',
+        },
+        {
+            title: 'Charlie\'s Bunion Trail',
+            link: 'https://www.alltrails.com/trail/us/tennessee/charlies-bunion-via-appalachian-trail',
+            img: charliesBunionTrail,
+            description: 'Moderate trail which is 8.6 and is part of the Appalachian Trail. Close to Clingman\'s Dome.',
+        },
+    ],
+    pawleys: [
+        {
+            title: 'Brookgreen: Sculpture Garden',
+            link: 'https://www.brookgreen.org/american-sculpture',
+            img: brookgreenSculpture,
+            description: "Largest outdoor sculpture park in the US. Part of Brookgreen Gardens.",
+        },
+        {
+            title: 'Brookgreen: Botanical Gardens',
+            link: 'https://www.brookgreen.org/botanical-gardens',
+            img: brookgreenGardens,
+            description: "Beautiful professionally landscaped gardens. Part of Brookgreen Gardens.",
+        },
+        {
+            title: 'Brookgreen: Lowcountry Zoo',
+            link: 'https://www.brookgreen.org/lowcounty-zoo',
+            img: brookgreenZoo,
+            description: "Zoo filled with animals native to the Lowcountry. Part of Brookgreen Gardens.",
+        },
+        {
+            title: 'The Hammock Shops',
+            link: 'http://www.thehammockshops.com/',
+            img: hammockShops,
+            description: "Shopping location with local vendors, restaurants and events.",
+        },
+        {
+            title: 'Beach!',
+            link: 'https://www.townofpawleysisland.com/beach-access-parking/',
+            img: beach,
+            description: "White sand beaches for miles. Perfect for reading, swimming, rest and relaxation.",
+        },
+    ],
+}

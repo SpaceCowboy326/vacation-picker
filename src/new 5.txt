@@ -1,0 +1,16 @@
+Outline (ideal):
+
+-Multiple location options
+-description of town/city
+-dinner suggestions
+ -allow for food type or actual restaurants?
+ -optional?
+-invite anyone?
+-activities: hike/beach day mandatory
+-nights: 1-2?
+
+
+Possibly useful:
+-airbnb suggestions
+-nearby hikes
+-
