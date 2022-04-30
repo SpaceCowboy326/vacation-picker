@@ -254,23 +254,7 @@ export default function App(props) {
           spacing={5}
           className={classes.happyBirthday}
         >
-
-          <Typography className={classes.happyBirthdayText} color="secondary" variant="h4" component="h1" gutterBottom>
-            HAPPY BIRTHDAY SAMBO!
-          </Typography>
-          <Typography className={classes.endSummaryText}>
-            You are headed to {title} sometime around {date}. Over the course of {duration_string},
-            we're going to try to get to all these activities:
-          </Typography>
-          <Typography className={classes.endSummaryText} paddingLeft="20px" color="secondary"> {activity_string}</Typography>
-          <Typography className={classes.endSummaryText}>
-          When we get hungry, we'll look to eat at these fine establishments:
-          </Typography>
-          <Typography className={classes.endSummaryText} paddingLeft="20px" color="secondary">{restaurant_string}</Typography>
-          <Typography className={classes.endSummaryText}>
-          Hopefully you saw some places you'd like to stay at!
-          </Typography>
-
+          HAPPY BIRTHDAY!
         </Grid>
       </Collapse>
       <Collapse in={collapse} id="collapse_section">
