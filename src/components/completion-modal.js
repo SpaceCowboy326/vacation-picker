@@ -92,23 +92,7 @@ export default function CompletionModal(props) {
       >
         <DialogContent dividers>
             <Typography gutterBottom variant="h5" component="h2">
-                Dear Sam,
-            </Typography>
-            <Typography variant="body2" color="textSecondary" component="p" className={classes.firstParagraph}>
-                Look at how much we've done in a year! It's hard to believe that on your last birthday, equity-less, engagement-less and
-                living in a busy Boston suburb. I'm so happy to see you making new friends and truly trying to make the best out
-                of every single day we've spent living down south. Even hundreds of miles from home, you keep me busy enough that
-                I've barely had time to miss it. There is no one in the world I would rather share these experiences with than you.
-                You are sweet, thoughtful, and always two steps ahead planning our next move. I'm so grateful for everything you
-                do, from cooking and cleaning to just putting up with some of my weird quirks.
-            </Typography>
-            <Typography variant="body2" color="textSecondary" component="p" className={classes.secondParagraph}>
-                I know that you don't really care for technology. I know that a web application doesn't have the same natural beauty
-                as a good book, or a painting, or a lovingly crafted piece of music. But this is what I know how to do. So I made an
-                application that is just for you - just so that you can pick a perfect getaway. As you know well, my projects often
-                fall apart due to lack of interest or motivation. I can honestly say that I am happy with what I was able to create
-                here, and that there is no way I could have done it without you. Making something for you is what kept me focused,
-                and the only reason most of this project works. I love you Sam, and I hope you have a very happy birthday.
+              HOORAY!!!
             </Typography>
         </DialogContent>
         <DialogActions>

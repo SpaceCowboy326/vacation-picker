@@ -24,7 +24,7 @@ import LodgingDetails from './components/lodging-details'
 import RestaurantDetails from './components/restaurant-details'
 
 
-import HappyBirthday from './components/hb'
+// import HappyBirthday from './components/hb'
 import CompletionModal from './components/completion-modal'
 
 import beachTheme from './themes/beach-theme';
